@@ -773,109 +773,291 @@ a {
 }
 
 /* =========================================================
-   14. RESPONSIVIDADE - TABLET
+   RESPONSIVIDADE
    ========================================================= */
 
+/* TABLET */
 @media (max-width: 980px) {
 
+    .container {
+        width: calc(100% - 40px);
+    }
+
+    /* Menu */
     .nav {
         display: none;
     }
 
+    .botao-nav {
+        display: none;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 650px;
+        background-position: center;
+    }
+
+    .hero-title {
+        gap: 15px;
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+
+    .hero-title .nr,
+    .hero-title .transportes {
+        font-size: 70px;
+    }
+
+    .hero .eyebrow {
+        font-size: 22px;
+    }
+
+    /* SOBRE */
     .split {
         grid-template-columns: 1fr;
         gap: 45px;
     }
 
+    #carouselExample {
+        width: 100%;
+    }
+
+    /* SERVIÇOS */
     .services-grid {
         grid-template-columns: 1fr;
     }
 
     .service-card {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.14);
     }
 
-    .service-card:last-child {
-        border-bottom: 0;
-    }
-
-    .service-number {
-        margin-bottom: 34px;
-    }
-
-    .fleet-heading {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .cta-inner {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-}
-
-
-/* =========================================================
-   15. RESPONSIVIDADE - CELULAR
-   ========================================================= */
-
-@media (max-width: 720px) {
-
-    .container {
-        width: min(calc(100% - 30px), var(--max));
-    }
-
-    .topbar .btn-nav {
-        display: none;
-    }
-
-    .nav-wrap {
-        min-height: 68px;
-    }
-
-    .hero {
-        min-height: 670px;
-    }
-
-    .hero h1 {
-        font-size: clamp(44px, 14vw, 66px);
-        letter-spacing: -2.5px;
-    }
-
-    .hero::after {
-        display: none;
-    }
-
-    .hero-actions,
-    .contact-actions {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-    }
-
-    .hero-actions {
-        max-width: 330px;
-    }
-
-    .section {
-        padding: 78px 0;
-    }
-
-    .photo-card {
-        min-height: 390px;
-    }
-
+    /* FROTA */
     .fleet-grid {
         grid-template-columns: 1fr;
     }
 
+    /* CONTATO */
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .social-icon {
+        font-size: 65px;
+    }
+}
+
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    /* CABEÇALHO */
+    .topbar {
+        position: relative;
+    }
+
+    .nav-wrap {
+        min-height: 70px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 600px;
+
+        background:
+            linear-gradient(
+                rgba(9, 26, 40, .78),
+                rgba(9, 26, 40, .78)
+            ),
+            url("images/hero-van.png") center/cover no-repeat;
+    }
+
+    .hero-content {
+        padding-top: 40px;
+    }
+
+    .hero .eyebrow {
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        display: block;
+        white-space: normal;
+    }
+
+    .hero-title .nr {
+        display: block;
+        font-size: 65px;
+    }
+
+    .hero-title .transportes {
+        display: block;
+        font-size: 52px;
+        margin-top: 5px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botao {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* TÍTULOS */
+    .eyebrow.dark,
+    .eyebrown {
+        font-size: 36px;
+    }
+
+    .solu {
+        font-size: 24px;
+    }
+
+    .atend {
+        font-size: 16px;
+    }
+
+    /* SOBRE */
+    .split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section-copy p {
+        font-size: 15px;
+    }
+
+    .text-link {
+        font-size: 16px;
+    }
+
+    /* CARROSSEL */
+    #carouselExample {
+        width: 100%;
+    }
+
+    #carouselExample .carousel-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    #carouselExample .carousel-caption {
+        left: 5%;
+        right: 5%;
+        bottom: 10px;
+        padding: 10px 12px;
+    }
+
+    #carouselExample .carousel-caption h5 {
+        font-size: 17px;
+    }
+
+    #carouselExample .carousel-caption p {
+        font-size: 12px;
+    }
+
+    /* SERVIÇOS */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: auto;
+        padding: 30px 25px;
+    }
+
+    /* FROTA */
+    .fleet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-card {
+        min-height: auto;
+        padding: 25px 15px;
+    }
+
+    .vehicle-info img {
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+        object-fit: cover;
+    }
+
+    .vehicle-info h3 {
+        font-size: 24px;
+    }
+
+    .vehicle-info ul {
+        font-size: 15px;
+    }
+
+    /* CONTATO */
+    .cta {
+        padding: 80px 0;
+    }
+
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 35px;
+    }
+
+    .cta h2 {
+        font-size: 34px;
+        line-height: 1.15;
+    }
+
+    .cta p {
+        font-size: 15px;
+    }
+
+    .contact-actions {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .social-icon {
+        font-size: 55px;
+    }
+
+    /* RODAPÉ */
     .footer-grid {
         grid-template-columns: 1fr;
-        text-align: left;
+        text-align: center;
+        gap: 15px;
     }
 
     .footer-grid > a:last-child {
-        justify-self: start;
+        justify-self: center;
+    }
+
+    .brand-footer {
+        justify-self: center;
     }
 }
