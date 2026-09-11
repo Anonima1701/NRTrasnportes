@@ -1000,7 +1000,7 @@ a {
     min-height: 85px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
 }
 
 .brand {
@@ -1008,14 +1008,31 @@ a {
 }
 
 .menu-toggle {
+    .menu-toggle {
     display: inline-flex;
-    margin-left: auto;
+
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
     width: 48px;
     height: 48px;
+
     align-items: center;
     justify-content: center;
-    font-size: 38px;
+
     padding: 0;
+    margin: 0;
+
+    font-size: 38px;
+
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+
+    z-index: 10;
+}
 }
 
 .logo {
