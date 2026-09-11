@@ -1215,66 +1215,83 @@ a {
        ========================= */
 
     .fleet {
-        width: 100%;
-        overflow-x: hidden;
-    }
+    width: 100%;
+    overflow: hidden;
+    padding: 55px 0;
+}
 
-    .fleet-heading {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+.fleet-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 30px;
+}
 
-    .fleet-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 100%;
-        gap: 25px;
-    }
+/* Card branco completo */
+.vehicle-card {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    background: #ffffff;
 
-    /* QUADRADO BRANCO DAS VANS */
-    .vehicle-card {
-        width: 100%;
-        max-width: 100%;
-        min-height: auto;
-        padding: 20px;
-        margin: 0;
-        border-radius: 15px;
-    }
+    padding: 20px;
+    margin: 0;
 
-    .vehicle-info {
-        width: 100%;
-        padding: 0;
-        text-align: center;
-    }
+    border-radius: 20px;
+    overflow: hidden;
+}
 
-    /* IMAGENS DAS VANS */
-    .vehicle-info img {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        object-fit: cover;
-        display: block;
-        margin: 0 auto 20px;
-        border-radius: 12px;
-    }
+/* Conteúdo interno */
+.vehicle-info {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
 
-    /* MASTER BRANCA / MASTER PRATA */
-    .vehicle-info h3 {
-        font-size: 24px;
-        line-height: 1.2;
-    }
+/* Foto */
+.vehicle-info img {
+    display: block;
 
-    /* CARACTERÍSTICAS DAS VANS */
-    .vehicle-info ul {
-        display: inline-block;
-        max-width: 100%;
-        margin-top: 15px;
-        padding-left: 20px;
-        font-size: 15px;
-        line-height: 1.6;
-        text-align: left;
-    }
+    width: 100%;
+    max-width: 100%;
+    height: 360px;
 
+    object-fit: cover;
+
+    margin: 0 auto 20px;
+
+    border-radius: 15px;
+}
+
+/* MASTER BRANCA / MASTER PRATA */
+.vehicle-info h3 {
+    font-family: "TAN Headline", serif;
+    font-size: 30px;
+    line-height: 1.1;
+
+    color: #043ba4;
+
+    margin: 10px 0 20px;
+}
+
+/* Lista */
+.vehicle-info ul {
+    display: block;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 0 auto;
+    padding-left: 22px;
+
+    text-align: left;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+
+    color: #68727c;
+}
 
     /* =========================
        FALE CONOSCO
