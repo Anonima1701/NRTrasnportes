@@ -8,8 +8,6 @@
   <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- css -->
-  <link rel="stylesheet" href="./style.css">
 
   <!-- bootstrap -->
   <!-- Bootstrap CSS -->
@@ -25,6 +23,9 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="./style.css">
+
 
 </head>
 
@@ -38,13 +39,23 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
          alt="NR Transportes" 
          class="logo">
       </a>
+      <!--botao celular-->
+      <button class="menu-toggle" 
+              type="button" 
+              aria-label="Abrir menu" 
+              aria-expanded="false" 
+              aria-controls="mainNav">
+          <i class="bi bi-list"></i>
+      </button>
     <!--nav-->
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#inicio" class="nav"> Início</a>
-        <a href="sobre" class="nav">Sobre</a>
-        <a href="#serviços" class="nav">Serviços</a>
-        <a href="#frota" class="nav">Frota</a>
-        <a href="#contato" class="nav">Contato</a>
+      <nav class="nav nav-menu"  
+            id="mainNav" 
+            aria-label="Navegação principal">
+        <a href="#inicio"> Início</a>
+        <a href="#sobre" >Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#frota">Frota</a>
+        <a href="#contato">Contato</a>
       </nav>
 
       <a class="botao botao-nav" href="contato">Solicitar orçamento</a>        
@@ -153,80 +164,84 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
           <article class="service-card">
             <span class="service-number">01</span>
             <h3 class="titulo">&#128654 Transporte corporativo</h3>
-            <p>
-              <li class="li1">Transporte de funcionários</li>
-              <li class="li1">Transporte de equipes</li>
-              <li class="li1">Fretamento empresarial</li>
-              <li class="li1">Transporte para reuniões e convenções</li>
-            </p>
+            <ul class="service-list">
+                <li class="li1">Transporte de funcionários</li>
+                <li class="li1">Transporte de equipes</li>
+                <li class="li1">Fretamento empresarial</li>
+                <li class="li1">Transporte para reuniões e convenções</li>
+            </ul>
           </article>
 
           <article class="service-card featured">
             <span class="service-number">02</span>
             <h3 class="titulo">&#127970 Viagens e eventos</h3>
-            <p>
+            <ul class="service-list">
               <li class="li1">Traslado para aeroportos</li>
             <li class="li1">Traslado para hotéis</li>
             <li class="li1">Viagens intermunicipais</li>
             <li class="li1">Viagens interestaduais</li>
             <li class="li1">Passeios e excursões</li>
-            </p>
+            </ul>
           </article>
 
           <article class="service-card">
             <span class="service-number">03</span>
             <h3 class="titulo">&#127881 Fretamento</h3>
-            <p>
+            <ul class="service-list">
               <li class="li1">Casamentos e festas</li>
               <li class="li1"> Congressos e feiras </li>
               <li class="li1"> Eventos corporativos</li>
               <li class="li1"> Shows e festivais</li>
               <li class="li1">Transporte de grupos</li>
               <li class="li1">Fretamento de vans</li>
-            
-            </p>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 <!--NOSSA FROTA--> 
-    <section class="section fleet" id="frota">
-      <div class="container">
-        <div class="section-heading fleet-heading">
-          <div>
-            <span class="eyebrow dark">NOSSA FROTA</span>
-            <h3 class="conforto">Conforto para cada percurso.</h3>
-          </div>
-        </div>
-<!--vanbranva-->
-        <div class="fleet-grid">
-          <article class="vehicle-card">
-            <div class="vehicle-photo van-white"> 
-            <div class="vehicle-info">
-              <img src="images/branca.png" >
-              <h3>Master Branca</h3>
-              <ul>
+    <div class="fleet-grid">
+
+    <!-- MASTER BRANCA -->
+    <article class="vehicle-card">
+
+        <div class="vehicle-info">
+
+            <img src="images/branca.png" alt="Master Branca">
+
+            <h3>Master Branca</h3>
+
+            <ul>
                 <li class="li2">Amplo espaço interno</li>
                 <li class="li2">Conforto para viagens</li>
                 <li class="li2">Ideal para grupos e empresas</li>
-              </ul>
-            </div>
-          </article>
+            </ul>
 
-          <article class="vehicle-card">
-            <div class="vehicle-photo van-silver"> 
-            <div class="vehicle-info">
-              <img src="images/vanprata.png" >
-              <h3>Master Prata</h3>
-              <ul>
+        </div>
+
+    </article>
+
+
+    <!-- MASTER PRATA -->
+    <article class="vehicle-card">
+
+        <div class="vehicle-info">
+
+            <img src="images/vanprata.png" alt="Master Prata">
+
+            <h3>Master Prata</h3>
+
+            <ul>
                 <li class="li2">Visual executivo</li>
                 <li class="li2">Climatização e comodidade</li>
                 <li class="li2">Versátil para diferentes rotas</li>
-              </ul>
-            </div>
-          </article>
+            </ul>
+
         </div>
-      </div>
+
+    </article>
+
+</div>
     </section>
 <!--FALE CONOSCO-->
     <section class="cta" id="contato">
@@ -268,6 +283,42 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
       <a href="#inicio">Voltar ao topo ↑</a>
     </div>
   </footer>
+  <!--javascript do botao do celular-->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('#mainNav');
+
+    menuToggle.addEventListener('click', () => {
+
+        const isOpen = mainNav.classList.toggle('open');
+
+        menuToggle.setAttribute(
+            'aria-expanded',
+            isOpen
+        );
+
+        menuToggle.innerHTML = isOpen
+            ? '<i class="bi bi-x-lg"></i>'
+            : '<i class="bi bi-list"></i>';
+    });
+
+    mainNav.querySelectorAll('a').forEach(link => {
+
+        link.addEventListener('click', () => {
+
+            mainNav.classList.remove('open');
+
+            menuToggle.setAttribute(
+                'aria-expanded',
+                'false'
+            );
+
+            menuToggle.innerHTML =
+                '<i class="bi bi-list"></i>';
+        });
+
+    });
+</script>
 </body>
 </html>
 
