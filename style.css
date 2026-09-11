@@ -108,6 +108,31 @@ a {
 }
 
 /* Área interna do cabeçalho */
+.nav-wrap {
+    min-height: 78px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+
+    gap: 35px;
+
+    position: relative;
+}
+
+.brand {
+    justify-self: start;
+}
+
+.nav-menu {
+    justify-self: center;
+}
+
+.botao-nav {
+    justify-self: end;
+}
+
 .nav {
     display: flex;
     align-items: center;
@@ -646,7 +671,6 @@ a {
 }
 
 /* Lista de características */
-.vehicle-info ul {
     .vehicle-info ul {
     display: inline-block;
     max-width: 100%;
@@ -658,7 +682,7 @@ a {
     line-height: 1.7;
     color: #68727c;
 }
-}
+
 
 .vehicle-info li + li {
     margin-top: 6px;
@@ -802,38 +826,61 @@ a {
     .container {
         width: calc(100% - 40px);
     }
-
+    
 
     /* NAVBAR */
+    .nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 75px;
+    position: relative;
+}
 
-    .botao-nav {
-        display: none;
-    }
+.brand {
+    margin-right: auto;
+}
 
-    .menu-toggle {
-        display: inline-flex;
+.botao-nav {
+    display: none;
+}
 
-        margin-left: auto;
-    }
+.menu-toggle {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    font-size: 38px;
+
+    color: #ffffff;
+
+    background: transparent;
+
+    border: 0;
+
+    flex-shrink: 0;
+}
+
+
 
     .nav-menu {
         display: none;
-
         position: absolute;
-
         top: 100%;
-
         left: 0;
         right: 0;
-
         flex-direction: column;
-
         align-items: flex-start;
-
         gap: 0;
-
         padding: 12px 20px 18px;
-
         background:
             rgba(13, 32, 50, 0.98);
     }
@@ -844,9 +891,7 @@ a {
 
     .nav-menu a {
         width: 100%;
-
         padding: 13px 0;
-
         border-bottom:
             1px solid rgba(255,255,255,.10);
     }
@@ -860,7 +905,6 @@ a {
 
     .split {
         grid-template-columns: 1fr;
-
         gap: 45px;
     }
 
@@ -876,23 +920,18 @@ a {
 
     .fleet-heading {
         grid-template-columns: 1fr;
-
         gap: 20px;
     }
 
     .fleet-grid {
         grid-template-columns: 1fr;
-
         width: 100%;
-
         gap: 30px;
     }
 
     .vehicle-card {
         width: 100%;
-
         max-width: 100%;
-
         min-height: auto;
     }
 
@@ -901,9 +940,7 @@ a {
 
     .cta-inner {
         flex-direction: column;
-
         align-items: flex-start;
-
         gap: 40px;
     }
 
@@ -916,9 +953,7 @@ a {
 
     .footer-grid {
         grid-template-columns: 1fr;
-
         gap: 20px;
-
         text-align: center;
     }
 
@@ -955,24 +990,42 @@ a {
 
     /* NAVBAR */
 
-    .topbar {
-        position: fixed;
-    }
+    .topbar .container {
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 15px;
+}
 
-    .nav-wrap {
-        min-height: 70px;
-    }
+.nav-wrap {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    .logo {
-        width: 75px;
-    }
+.brand {
+    margin-right: auto;
+}
 
+.menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    padding: 0;
+}
+
+.logo {
+    width: 85px;
+}
 
     /* HERO */
 
     .hero {
         min-height: 600px;
-
         background:
             linear-gradient(
                 rgba(9, 26, 40, 0.80),

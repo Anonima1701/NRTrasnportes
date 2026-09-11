@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -40,13 +40,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
          class="logo">
       </a>
       <!--botao celular-->
-      <button class="menu-toggle" 
-              type="button" 
-              aria-label="Abrir menu" 
-              aria-expanded="false" 
-              aria-controls="mainNav">
-          <i class="bi bi-list"></i>
-      </button>
+     
     <!--nav-->
       <nav class="nav nav-menu"  
             id="mainNav" 
@@ -58,8 +52,16 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
         <a href="#contato">Contato</a>
       </nav>
 
-      <a class="botao botao-nav" href="contato">Solicitar orçamento</a>        
+      <a class="botao botao-nav" href="#contato">Solicitar orçamento</a>
+       <button class="menu-toggle" 
+              type="button" 
+              aria-label="Abrir menu" 
+              aria-expanded="false" 
+              aria-controls="mainNav">
+          <i class="bi bi-list"></i>
+      </button>        
         </div>
+
   </header>
 
 
@@ -200,49 +202,76 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
       </div>
     </section>
 <!--NOSSA FROTA--> 
-    <div class="fleet-grid">
+    <!-- NOSSA FROTA -->
 
-    <!-- MASTER BRANCA -->
-    <article class="vehicle-card">
+<section class="section fleet" id="frota">
+    <div class="container">
+        <div class="section-heading fleet-heading">
+            <div>
 
-        <div class="vehicle-info">
+                <span class="eyebrow dark">
+                    NOSSA FROTA
+                </span>
 
-            <img src="images/branca.png" alt="Master Branca">
-
-            <h3>Master Branca</h3>
-
-            <ul>
-                <li class="li2">Amplo espaço interno</li>
-                <li class="li2">Conforto para viagens</li>
-                <li class="li2">Ideal para grupos e empresas</li>
-            </ul>
-
+                <h3 class="conforto">
+                    Conforto para cada percurso.
+                </h3>
+            </div>
         </div>
+        <div class="fleet-grid">
+            <!-- MASTER BRANCA -->
+            <article class="vehicle-card">
+                <div class="vehicle-info">
+                    <img
+                        src="images/branca.png"
+                        alt="Master Branca">
 
-    </article>
+                    <h3>Master Branca</h3>
 
+                    <ul>
 
-    <!-- MASTER PRATA -->
-    <article class="vehicle-card">
+                        <li class="li2">
+                            Amplo espaço interno
+                        </li>
 
-        <div class="vehicle-info">
+                        <li class="li2">
+                            Conforto para viagens
+                        </li>
 
-            <img src="images/vanprata.png" alt="Master Prata">
+                        <li class="li2">
+                            Ideal para grupos e empresas
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            <!-- MASTER PRATA -->
+            <article class="vehicle-card">
+                <div class="vehicle-info">
 
-            <h3>Master Prata</h3>
+                    <img
+                        src="images/vanprata.png"
+                        alt="Master Prata">
 
-            <ul>
-                <li class="li2">Visual executivo</li>
-                <li class="li2">Climatização e comodidade</li>
-                <li class="li2">Versátil para diferentes rotas</li>
-            </ul>
+                    <h3>Master Prata</h3>
+                    <ul>
 
+                        <li class="li2">
+                            Visual executivo
+                        </li>
+
+                        <li class="li2">
+                            Climatização e comodidade
+                        </li>
+
+                        <li class="li2">
+                            Versátil para diferentes rotas
+                        </li>
+                    </ul>
+                </div>
+            </article>
         </div>
-
-    </article>
-
-</div>
-    </section>
+    </div>
+</section>
 <!--FALE CONOSCO-->
     <section class="cta" id="contato">
       <div class="container cta-inner">
