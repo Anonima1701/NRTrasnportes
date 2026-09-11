@@ -776,14 +776,22 @@ a {
    RESPONSIVIDADE
    ========================================================= */
 
-/* TABLET */
+/* =========================================================
+   14. RESPONSIVIDADE - TABLET
+   ========================================================= */
+
 @media (max-width: 980px) {
 
+    /* CONTAINER */
     .container {
         width: calc(100% - 40px);
     }
 
-    /* Menu */
+
+    /* =========================
+       CABEÇALHO
+       ========================= */
+
     .nav {
         display: none;
     }
@@ -792,10 +800,31 @@ a {
         display: none;
     }
 
-    /* HERO */
+    .nav-wrap {
+        min-height: 75px;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
     .hero {
         min-height: 650px;
         background-position: center;
+    }
+
+    .hero-content {
+        padding-top: 70px;
+    }
+
+    .hero .eyebrow {
+        font-size: 22px;
+        letter-spacing: 3px;
     }
 
     .hero-title {
@@ -804,54 +833,174 @@ a {
         flex-wrap: wrap;
     }
 
-    .hero-title .nr,
+    .hero-title .nr {
+        font-size: 75px;
+    }
+
     .hero-title .transportes {
-        font-size: 70px;
+        font-size: 75px;
     }
 
-    .hero .eyebrow {
-        font-size: 22px;
+    .hero p {
+        font-size: 17px;
+        max-width: 500px;
     }
 
-    /* SOBRE */
+
+    /* =========================
+       SOBRE NÓS
+       ========================= */
+
     .split {
         grid-template-columns: 1fr;
         gap: 45px;
     }
 
-    #carouselExample {
+    .section-copy {
         width: 100%;
     }
 
-    /* SERVIÇOS */
+    .eyebrow.dark {
+        font-size: 42px;
+    }
+
+    .section-copy p {
+        font-size: 16px;
+    }
+
+
+    /* =========================
+       CARROSSEL
+       ========================= */
+
+    #carouselExample {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    #carouselExample .carousel-item img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+
+    /* =========================
+       SERVIÇOS
+       ========================= */
+
     .services-grid {
         grid-template-columns: 1fr;
     }
 
     .service-card {
+        min-height: auto;
         border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,.14);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    /* FROTA */
+    .service-card:last-child {
+        border-bottom: none;
+    }
+
+    .service-number {
+        margin-bottom: 30px;
+    }
+
+    .eyebrown {
+        font-size: 42px;
+    }
+
+
+    /* =========================
+       FROTA
+       ========================= */
+
+    .fleet {
+        overflow-x: hidden;
+    }
+
+    .fleet-heading {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .fleet-grid {
         grid-template-columns: 1fr;
+        width: 100%;
+        gap: 30px;
     }
 
-    /* CONTATO */
+    .vehicle-card {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+    }
+
+    .vehicle-info {
+        width: 100%;
+    }
+
+    .vehicle-info img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+
+    /* =========================
+       FALE CONOSCO
+       ========================= */
+
     .cta-inner {
         flex-direction: column;
         align-items: flex-start;
+        gap: 40px;
+    }
+
+    .contact-actions {
+        flex-direction: row;
     }
 
     .social-icon {
-        font-size: 65px;
+        font-size: 70px;
+    }
+
+
+    /* =========================
+       RODAPÉ
+       ========================= */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .brand-footer {
+        justify-self: center;
+    }
+
+    .footer-grid > a:last-child {
+        justify-self: center;
     }
 }
 
 
-/* CELULAR */
+
+/* =========================================================
+   15. RESPONSIVIDADE - CELULAR
+   ========================================================= */
+
 @media (max-width: 600px) {
+
+    /* =========================
+       GERAL
+       ========================= */
+
+    body {
+        overflow-x: hidden;
+    }
 
     .container {
         width: calc(100% - 30px);
@@ -861,7 +1010,11 @@ a {
         padding: 65px 0;
     }
 
-    /* CABEÇALHO */
+
+    /* =========================
+       CABEÇALHO
+       ========================= */
+
     .topbar {
         position: relative;
     }
@@ -870,24 +1023,41 @@ a {
         min-height: 70px;
     }
 
-    .logo {
-        width: 80px;
+    .nav {
+        display: none;
     }
 
-    /* HERO */
+    .botao-nav {
+        display: none;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
     .hero {
         min-height: 600px;
 
         background:
             linear-gradient(
-                rgba(9, 26, 40, .78),
-                rgba(9, 26, 40, .78)
+                rgba(9, 26, 40, 0.80),
+                rgba(9, 26, 40, 0.80)
             ),
-            url("images/hero-van.png") center/cover no-repeat;
+            url("images/hero-van.png")
+            center/cover no-repeat;
     }
 
     .hero-content {
-        padding-top: 40px;
+        padding-top: 35px;
+    }
+
+    .hero-copy {
+        max-width: 100%;
     }
 
     .hero .eyebrow {
@@ -904,22 +1074,28 @@ a {
     .hero-title .nr {
         display: block;
         font-size: 65px;
+        line-height: 1;
     }
 
     .hero-title .transportes {
         display: block;
-        font-size: 52px;
+        font-size: 48px;
+        line-height: 1;
         margin-top: 5px;
     }
 
     .hero p {
-        font-size: 16px;
+        width: 100%;
         max-width: 100%;
+        font-size: 16px;
+        line-height: 1.6;
     }
 
     .hero-actions {
-        flex-direction: column;
         width: 100%;
+        max-width: 100%;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .botao {
@@ -927,10 +1103,17 @@ a {
         text-align: center;
     }
 
-    /* TÍTULOS */
-    .eyebrow.dark,
+
+    /* =========================
+       TÍTULOS
+       ========================= */
+
+    .eyebrow.dark {
+        font-size: 34px;
+    }
+
     .eyebrown {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     .solu {
@@ -939,31 +1122,47 @@ a {
 
     .atend {
         font-size: 16px;
+        line-height: 1.5;
     }
 
-    /* SOBRE */
+
+    /* =========================
+       SOBRE NÓS
+       ========================= */
+
     .split {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 35px;
+    }
+
+    .section-copy {
+        width: 100%;
     }
 
     .section-copy p {
         font-size: 15px;
+        line-height: 1.7;
     }
 
     .text-link {
         font-size: 16px;
     }
 
-    /* CARROSSEL */
+
+    /* =========================
+       CARROSSEL
+       ========================= */
+
     #carouselExample {
         width: 100%;
+        max-width: 100%;
     }
 
     #carouselExample .carousel-item img {
         width: 100%;
         height: 300px;
         object-fit: cover;
+        border-radius: 12px;
     }
 
     #carouselExample .carousel-caption {
@@ -981,43 +1180,108 @@ a {
         font-size: 12px;
     }
 
-    /* SERVIÇOS */
+
+    /* =========================
+       SERVIÇOS
+       ========================= */
+
     .services-grid {
         grid-template-columns: 1fr;
     }
 
     .service-card {
+        width: 100%;
         min-height: auto;
         padding: 30px 25px;
+        border-right: none;
     }
 
-    /* FROTA */
-    .fleet-grid {
+    .service-number {
+        margin-bottom: 25px;
+        font-size: 18px;
+    }
+
+    .service-card h3 {
+        font-size: 21px;
+    }
+
+    .service-card p {
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       FROTA
+       ========================= */
+
+    .fleet {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .fleet-heading {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
+    .fleet-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 25px;
+    }
+
+    /* QUADRADO BRANCO DAS VANS */
     .vehicle-card {
+        width: 100%;
+        max-width: 100%;
         min-height: auto;
-        padding: 25px 15px;
+        padding: 20px;
+        margin: 0;
+        border-radius: 15px;
     }
 
+    .vehicle-info {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    /* IMAGENS DAS VANS */
     .vehicle-info img {
         width: 100%;
         max-width: 280px;
-        height: 280px;
+        height: auto;
         object-fit: cover;
+        display: block;
+        margin: 0 auto 20px;
+        border-radius: 12px;
     }
 
+    /* MASTER BRANCA / MASTER PRATA */
     .vehicle-info h3 {
         font-size: 24px;
+        line-height: 1.2;
     }
 
+    /* CARACTERÍSTICAS DAS VANS */
     .vehicle-info ul {
+        display: inline-block;
+        max-width: 100%;
+        margin-top: 15px;
+        padding-left: 20px;
         font-size: 15px;
+        line-height: 1.6;
+        text-align: left;
     }
 
-    /* CONTATO */
+
+    /* =========================
+       FALE CONOSCO
+       ========================= */
+
     .cta {
+        width: 100%;
         padding: 80px 0;
     }
 
@@ -1027,6 +1291,10 @@ a {
         gap: 35px;
     }
 
+    .cta .eyebrow {
+        font-size: 22px;
+    }
+
     .cta h2 {
         font-size: 34px;
         line-height: 1.15;
@@ -1034,30 +1302,50 @@ a {
 
     .cta p {
         font-size: 15px;
+        line-height: 1.6;
     }
 
+    /* WHATSAPP + INSTAGRAM */
     .contact-actions {
+        width: 100%;
+        display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
-        width: auto;
+        gap: 25px;
     }
 
     .social-icon {
         font-size: 55px;
     }
 
-    /* RODAPÉ */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 15px;
+
+    /* =========================
+       RODAPÉ
+       ========================= */
+
+    .footer {
+        padding: 35px 0;
     }
 
-    .footer-grid > a:last-child {
-        justify-self: center;
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 18px;
     }
 
     .brand-footer {
         justify-self: center;
+    }
+
+    .direitos {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .footer-grid > a:last-child {
+        justify-self: center;
+        font-size: 16px;
     }
 }
