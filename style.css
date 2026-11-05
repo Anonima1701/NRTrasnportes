@@ -1680,3 +1680,157 @@ a {
         margin: 0 auto;
     }
 }
+
+/* ==========================================
+   PAGAMENTO - LAYOUT CORRIGIDO
+========================================== */
+
+.payment-section {
+    background: #eaf2f8;
+    padding: 70px 0;
+}
+
+.payment-section .titulo-tan {
+    font-family: "TAN Headline", serif;
+    color: #043ba4;
+    font-size: clamp(28px, 4vw, 45px);
+    margin-bottom: 20px;
+}
+
+.payment-description {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* DUAS COLUNAS */
+
+.payment-section .payment-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 35px;
+    align-items: center;
+    width: 100%;
+}
+
+/* SIMULADOR */
+
+.payment-section .payment-layout .payment-widget {
+    position: static;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.payment-section .payment-widget label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.payment-section .payment-widget input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    border: 1px solid #aab8c8;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* RESULTADOS */
+
+.payment-section .payment-results {
+    display: block;
+    width: 100%;
+}
+
+.payment-section .payment-results p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid #dce3eb;
+}
+
+.payment-section .payment-results strong {
+    white-space: nowrap;
+}
+
+/* AVISO DENTRO DO SIMULADOR */
+
+.payment-section .payment-notice {
+    display: block;
+    margin-top: 25px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #68727c;
+}
+
+/* VÍDEO CENTRALIZADO NA DIREITA */
+
+.payment-section .payment-video {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+}
+
+.payment-section .payment-video video {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: 280px;
+    min-height: 0;
+    object-fit: contain;
+    background: #0d2032;
+    border-radius: 18px;
+}
+
+/* CELULAR E TABLET */
+
+@media (max-width: 900px) {
+
+    .payment-section .payment-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .payment-section .payment-video video {
+        max-width: 420px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .payment-section .payment-layout .payment-widget {
+        padding: 22px;
+    }
+
+    .payment-section .payment-results p {
+        font-size: 14px;
+    }
+
+    .payment-section .payment-video video {
+        max-width: 100%;
+    }
+}
