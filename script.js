@@ -252,3 +252,67 @@ Obrigado!`;
     }
 
 });
+
+
+/* ==========================================
+   SIMULADOR DE PAGAMENTO - NR TRANSPORTES
+========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Captura os elementos do HTML
+    const valorOrcamento = document.getElementById("valorOrcamento");
+    const valorEntrada = document.getElementById("valorEntrada");
+    const valorRestante = document.getElementById("valorRestante");
+    const valorTotal = document.getElementById("valorTotal");
+
+    // Formata os valores em reais
+    function formatarMoeda(valor) {
+        return valor.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+    }
+
+    // Função que calcula o pagamento
+    function calcularPagamento() {
+
+        const valor = Number(valorOrcamento.value);
+
+        if (!Number.isFinite(valor) || valor <= 0) {
+            valorEntrada.textContent = formatarMoeda(0);
+            valorRestante.textContent = formatarMoeda(0);
+            valorTotal.textContent = formatarMoeda(0);
+            return;
+        }
+
+        // Calcula 50% de entrada
+        const entrada = valor * 0.5;
+
+        // Calcula o restante
+        const restante = valor - entrada;
+
+        // Mostra os resultados na tela
+        valorEntrada.textContent = formatarMoeda(entrada);
+        valorRestante.textContent = formatarMoeda(restante);
+        valorTotal.textContent = formatarMoeda(valor);
+    }
+
+    // Verifica se os elementos existem
+    if (valorOrcamento && valorEntrada &&
+        valorRestante && valorTotal) {
+
+        // Calcula automaticamente ao digitar
+        valorOrcamento.addEventListener("input", calcularPagamento);
+
+        // Calcula também ao carregar a página
+        calcularPagamento();
+
+    } else {
+        console.error(
+            "Erro: elementos do simulador não encontrados no HTML."
+        );
+    }
+
+});
+
