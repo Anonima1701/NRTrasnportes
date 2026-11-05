@@ -251,48 +251,4 @@ Obrigado!`;
         });
     }
 
-
-    // ======================================
-    // 9. SIMULADOR DE PAGAMENTO
-    // ======================================
-
-    const campoValor = document.querySelector("#valorOrcamento");
-
-    const valorEntrada = document.querySelector("#valorEntrada");
-    const valorRestante = document.querySelector("#valorRestante");
-    const valorTotal = document.querySelector("#valorTotal");
-
-    function formatarMoeda(valor) {
-
-        return valor.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
-    }
-
-    if (campoValor && valorEntrada &&
-        valorRestante && valorTotal) {
-
-        campoValor.addEventListener("input", function () {
-
-            const valor = Number(campoValor.value);
-
-            if (!Number.isFinite(valor) || valor <= 0) {
-
-                valorEntrada.textContent = formatarMoeda(0);
-                valorRestante.textContent = formatarMoeda(0);
-                valorTotal.textContent = formatarMoeda(0);
-
-                return;
-            }
-
-            const entrada = valor * 0.5;
-            const restante = valor - entrada;
-
-            valorEntrada.textContent = formatarMoeda(entrada);
-            valorRestante.textContent = formatarMoeda(restante);
-            valorTotal.textContent = formatarMoeda(valor);
-        });
-    }
-
 });
