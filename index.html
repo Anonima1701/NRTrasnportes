@@ -899,6 +899,7 @@
 
 
         
+
 <!-- ========================================
      SIMULE O PAGAMENTO + VÍDEO
 ======================================== -->
@@ -917,10 +918,10 @@
             a entrada de 50%.
         </p>
 
-        <!-- DUAS COLUNAS -->
+        <!-- SIMULADOR E VÍDEO LADO A LADO -->
         <div class="payment-layout">
 
-            <!-- COLUNA ESQUERDA: SIMULADOR -->
+            <!-- LADO ESQUERDO: SIMULADOR -->
             <div class="payment-widget">
 
                 <label for="valorOrcamento">
@@ -928,48 +929,63 @@
                 </label>
 
                 <input
-    id="valorOrcamento"
-    type="number"
-    min="0"
-    step="0.01"
-    placeholder="Ex.: 1200.00">
+                    type="number"
+                    id="valorOrcamento"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex.: 1200.00"
+                >
 
-<p>
-    Entrada (50%):
-    <strong id="valorEntrada">R$ 0,00</strong>
-</p>
+                <!-- RESULTADOS DO CÁLCULO -->
+                <div class="payment-results">
 
-<p>
-    Restante (50%):
-    <strong id="valorRestante">R$ 0,00</strong>
-</p>
+                    <p>
+                        <span>Entrada (50%):</span>
+                        <strong id="valorEntrada">
+                            R$ 0,00
+                        </strong>
+                    </p>
 
-<p>
-    Pagamento integral:
-    <strong id="valorTotal">R$ 0,00</strong>
-</p>
+                    <p>
+                        <span>Restante (50%):</span>
+                        <strong id="valorRestante">
+                            R$ 0,00
+                        </strong>
+                    </p>
+
+                    <p>
+                        <span>Pagamento integral:</span>
+                        <strong id="valorTotal">
+                            R$ 0,00
+                        </strong>
+                    </p>
+
                 </div>
 
-                <small>
+                <!-- AVISO DENTRO DO CARTÃO -->
+                <small class="payment-notice">
                     Simulação informativa:
                     não realiza cobranças
                     ou confirma reservas.
                 </small>
 
             </div>
+            <!-- FIM DO SIMULADOR -->
 
-            <!-- COLUNA DIREITA: VÍDEO -->
+            <!-- LADO DIREITO: VÍDEO -->
             <div class="payment-video">
 
                 <video
                     controls
                     playsinline
                     preload="metadata"
-                    aria-label="Vídeo da NR Transportes">
+                    aria-label="Vídeo da NR Transportes"
+                >
 
                     <source
                         src="./images/Video Project.mp4"
-                        type="video/mp4">
+                        type="video/mp4"
+                    >
 
                     Seu navegador não suporta
                     a reprodução de vídeos.
@@ -977,8 +993,10 @@
                 </video>
 
             </div>
+            <!-- FIM DO VÍDEO -->
 
         </div>
+        <!-- FIM DAS DUAS COLUNAS -->
 
     </div>
 
