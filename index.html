@@ -898,80 +898,100 @@
         </section>
 
 
-        <!-- ====================================
-             SIMULE O PAGAMENTO
-        ==================================== -->
+        
+<!-- ========================================
+     SIMULE O PAGAMENTO + VÍDEO
+======================================== -->
 
-        <section class="section payment-section" id="pagamento">
+<section class="section payment-section" id="pagamento">
 
-            <div class="container">
+    <div class="container">
 
-                <h2 class="titulo-tan">
-                    Simule o pagamento
-                </h2>
+        <h2 class="titulo-tan">
+            Simule o pagamento
+        </h2>
 
-                <p>
-                    Após receber o valor do orçamento,
-                    informe-o abaixo para calcular
-                    a entrada de 50%.
-                </p>
+        <p class="payment-description">
+            Após receber o valor do orçamento,
+            informe-o abaixo para calcular
+            a entrada de 50%.
+        </p>
 
+        <!-- DUAS COLUNAS -->
+        <div class="payment-layout">
 
-                <div class="payment-widget">
+            <!-- COLUNA ESQUERDA: SIMULADOR -->
+            <div class="payment-widget">
 
-                    <label for="valorOrcamento">
-                        Valor do orçamento (R$)
-                    </label>
+                <label for="valorOrcamento">
+                    Valor do orçamento (R$)
+                </label>
 
-                    <input
-                        id="valorOrcamento"
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        placeholder="Ex.: 1200.00">
+                <input
+                    id="valorOrcamento"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex.: 1200.00">
 
+                <div class="payment-results">
 
-                    <div class="payment-results">
+                    <p>
+                        Entrada (50%):
+                        <strong id="valorEntrada">
+                            R$ 0,00
+                        </strong>
+                    </p>
 
-                        <p>
-                            Entrada (50%):
+                    <p>
+                        Restante (50%):
+                        <strong id="valorRestante">
+                            R$ 0,00
+                        </strong>
+                    </p>
 
-                            <strong id="valorEntrada">
-                                R$ 0,00
-                            </strong>
-                        </p>
-
-                        <p>
-                            Restante (50%):
-
-                            <strong id="valorRestante">
-                                R$ 0,00
-                            </strong>
-                        </p>
-
-                        <p>
-                            Pagamento integral:
-
-                            <strong id="valorTotal">
-                                R$ 0,00
-                            </strong>
-                        </p>
-
-                    </div>
-
-
-                    <small>
-                        Simulação informativa:
-                        não realiza cobranças
-                        ou confirma reservas.
-                    </small>
+                    <p>
+                        Pagamento integral:
+                        <strong id="valorTotal">
+                            R$ 0,00
+                        </strong>
+                    </p>
 
                 </div>
 
+                <small>
+                    Simulação informativa:
+                    não realiza cobranças
+                    ou confirma reservas.
+                </small>
+
             </div>
 
-        </section>
+            <!-- COLUNA DIREITA: VÍDEO -->
+            <div class="payment-video">
 
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    aria-label="Vídeo da NR Transportes">
+
+                    <source
+                        src="./videos/nr-transportes.mp4"
+                        type="video/mp4">
+
+                    Seu navegador não suporta
+                    a reprodução de vídeos.
+
+                </video>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
         <!-- ====================================
              PERGUNTAS FREQUENTES
