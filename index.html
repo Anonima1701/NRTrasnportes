@@ -44,10 +44,11 @@
                 <a href="#sobre">Sobre</a>
                 <a href="#servicos">Serviços</a>
                 <a href="#frota">Frota</a>
+                <a href="#orcamento">Orçamento</a>
                 <a href="#contato">Contato</a>
             </nav>
             <!--botao celular-->
-            <a class="botao botao-nav" href="#contato">Solicitar orçamento</a>
+            <a class="botao botao-nav" href="#orcamento">Solicitar orçamento</a>
             <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
                 aria-controls="mainNav">
                 <i class="bi bi-list"></i>
@@ -75,7 +76,7 @@
                         Conforto, pontualidade e atendimento profissional para cada trajeto.
                     </p>
                     <div class="hero-actions">
-                        <a class="botao botao-primary" href="#contato">Solicitar orçamento</a>
+                        <a class="botao botao-primary" href="#orcamento">Solicitar orçamento</a>
                         <a class="botao botao-outline" href="#servicos">Conheça nossos serviços</a>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                         responsabilidade. Trabalhamos para proporcionar tranquilidade aos nossos clientes em cada
                         trajeto, com veículos adequados e atendimento comprometido com pontualidade e qualidade. </p>
 
-                    <a class="text-link" href="#contato">Entre em contato com a gente</a>
+                    <a class="text-link" href="#orcamento">Entre em contato com a gente</a>
                 </div>
                 <!--carrossel-->
                 <div id="carouselExample" class="carousel slide">
@@ -212,6 +213,7 @@
                             <img src="images/branca.png" alt="Master Branca">
 
                             <h3>Master Branca</h3>
+                            <button type="button" class="botao botao-primary escolher-van" data-van="Master Branca">Escolher esta van</button>
 
                             <ul>
 
@@ -236,6 +238,7 @@
                             <img src="images/vanprata.png" alt="Master Prata">
 
                             <h3>Master Prata</h3>
+                            <button type="button" class="botao botao-primary escolher-van" data-van="Master Prata">Escolher esta van</button>
                             <ul>
 
                                 <li class="li2">
@@ -254,6 +257,58 @@
                     </article>
                 </div>
             </div>
+        </section>
+
+        <!-- ORÇAMENTO INTERATIVO -->
+        <section class="section quote-section" id="orcamento">
+          <div class="container">
+            <span class="eyebrow dark">ORÇAMENTO</span>
+            <h2>Planeje sua viagem</h2>
+            <p>Preencha os dados para enviar sua solicitação pelo WhatsApp. A equipe confirmará o preço e a disponibilidade.</p>
+            <form id="quoteForm" class="quote-form">
+              <div class="quote-grid">
+                <label>Nome completo <input id="cliente" name="cliente" type="text" autocomplete="name" maxlength="100" required></label>
+                <label>Origem <input id="origem" name="origem" type="text" maxlength="120" required></label>
+                <label>Destino <input id="destino" name="destino" type="text" maxlength="120" required></label>
+                <label>Data da viagem <input id="dataViagem" name="dataViagem" type="date" required></label>
+                <label>Horário <input id="horaViagem" name="horaViagem" type="time" required></label>
+                <label>Passageiros <input id="passageiros" name="passageiros" type="number" min="1" max="99" required></label>
+                <label>Veículo de preferência
+                  <select id="veiculo" name="veiculo" required>
+                    <option value="">Selecione um veículo</option>
+                    <option>Master Branca</option><option>Master Prata</option><option>Sem preferência</option>
+                  </select>
+                </label>
+                <label>Forma de pagamento pretendida
+                  <select id="formaPagamento" name="formaPagamento"><option>50% de entrada</option><option>Pagamento integral</option></select>
+                </label>
+              </div>
+              <label>Observações (opcional) <textarea id="observacoes" name="observacoes" rows="3" maxlength="500"></textarea></label>
+              <p id="quoteFeedback" role="status" aria-live="polite"></p>
+              <button class="botao botao-primary" type="submit">Enviar orçamento pelo WhatsApp</button>
+            </form>
+          </div>
+        </section>
+        <section class="section payment-section" id="pagamento">
+          <div class="container">
+            <h2>Simule o pagamento</h2>
+            <p>Após receber o valor do orçamento, informe-o abaixo para calcular a entrada de 50%.</p>
+            <div class="payment-widget">
+              <label for="valorOrcamento">Valor do orçamento (R$)</label>
+              <input id="valorOrcamento" type="number" min="0" step="0.01" placeholder="Ex.: 1200,00">
+              <div class="payment-results"><p>Entrada (50%): <strong id="valorEntrada">R$ 0,00</strong></p><p>Restante (50%): <strong id="valorRestante">R$ 0,00</strong></p><p>Pagamento integral: <strong id="valorTotal">R$ 0,00</strong></p></div>
+              <small>Simulação informativa: não realiza cobranças ou confirma reservas.</small>
+            </div>
+          </div>
+        </section>
+        <section class="section faq-section" id="duvidas">
+          <div class="container">
+            <h2>Perguntas frequentes</h2>
+            <details><summary>Como solicito um orçamento?</summary><p>Preencha o formulário e envie a mensagem gerada pelo WhatsApp.</p></details>
+            <details><summary>O envio do formulário confirma minha reserva?</summary><p>Não. A reserva depende de confirmação da NR Transportes.</p></details>
+            <details><summary>Posso escolher a van?</summary><p>Você pode indicar sua preferência; a disponibilidade será confirmada pela empresa.</p></details>
+            <details><summary>Posso simular uma entrada de 50%?</summary><p>Sim. Informe o valor recebido no orçamento no simulador acima.</p></details>
+          </div>
         </section>
         <!--FALE CONOSCO-->
         <section class="cta" id="contato">
@@ -311,42 +366,7 @@
         </div>
     </footer>
 
-    <!--javascript do botao do celular-->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('#mainNav');
-
-        menuToggle.addEventListener('click', () => {
-
-            const isOpen = mainNav.classList.toggle('open');
-
-            menuToggle.setAttribute(
-                'aria-expanded',
-                isOpen
-            );
-
-            menuToggle.innerHTML = isOpen
-                ? '<i class="bi bi-x-lg"></i>'
-                : '<i class="bi bi-list"></i>';
-        });
-
-        mainNav.querySelectorAll('a').forEach(link => {
-
-            link.addEventListener('click', () => {
-
-                mainNav.classList.remove('open');
-
-                menuToggle.setAttribute(
-                    'aria-expanded',
-                    'false'
-                );
-
-                menuToggle.innerHTML =
-                    '<i class="bi bi-list"></i>';
-            });
-
-        });
-    </script>
+    <script src="./script.js" defer></script>
 </body>
 
 </html>
