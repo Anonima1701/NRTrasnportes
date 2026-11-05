@@ -1,9 +1,9 @@
 
 /* ==========================================
-   NR TRANSPORTES - JAVASCRIPT
+   NR TRANSPORTES - JAVASCRIPT CORRIGIDO
    ========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
     // ======================================
     // 1. MENU RESPONSIVO
@@ -16,28 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function fecharMenu() {
             mainNav.classList.remove("open");
-
             menuToggle.setAttribute("aria-expanded", "false");
-
             menuToggle.innerHTML = '<i class="bi bi-list"></i>';
         }
 
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", function () {
 
             const aberto = mainNav.classList.toggle("open");
 
-            menuToggle.setAttribute("aria-expanded", String(aberto));
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(aberto)
+            );
 
             menuToggle.innerHTML = aberto
                 ? '<i class="bi bi-x-lg"></i>'
                 : '<i class="bi bi-list"></i>';
         });
 
-        mainNav.querySelectorAll("a").forEach(link => {
+        mainNav.querySelectorAll("a").forEach(function (link) {
             link.addEventListener("click", fecharMenu);
         });
 
-        document.addEventListener("keydown", (event) => {
+        document.addEventListener("keydown", function (event) {
             if (event.key === "Escape") {
                 fecharMenu();
             }
@@ -46,30 +47,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ======================================
-    // 2. SELEÇÃO DE VEÍCULOS
+    // 2. SELEÇÃO DAS VANS
     // ======================================
 
-    const botoesVeiculos = document.querySelectorAll(
-        "[data-veiculo]"
-    );
-
+    const botoesVan = document.querySelectorAll(".escolher-van");
     const campoVeiculo = document.querySelector("#veiculo");
 
-    botoesVeiculos.forEach(botao => {
+    botoesVan.forEach(function (botao) {
 
-        botao.addEventListener("click", () => {
+        botao.addEventListener("click", function () {
 
-            const veiculo = botao.dataset.veiculo;
+            const vanSelecionada = botao.dataset.van;
 
             if (campoVeiculo) {
-                campoVeiculo.value = veiculo;
+                campoVeiculo.value = vanSelecionada;
             }
 
-            botoesVeiculos.forEach(item => {
+            botoesVan.forEach(function (item) {
                 item.classList.remove("selecionado");
+                item.setAttribute("aria-pressed", "false");
             });
 
             botao.classList.add("selecionado");
+            botao.setAttribute("aria-pressed", "true");
 
             document.querySelector("#orcamento")
                 ?.scrollIntoView({
@@ -83,184 +83,216 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. FORMULÁRIO DE ORÇAMENTO
     // ======================================
 
-    const formulario = document.querySelector("#formOrcamento");
+    const formulario = document.querySelector("#quoteForm");
+    const campoData = document.querySelector("#dataViagem");
+    const feedback = document.querySelector("#quoteFeedback");
+
+    // Data atual no formato YYYY-MM-DD
+    function obterDataAtual() {
+
+        const hoje = new Date();
+
+        const ano = hoje.getFullYear();
+        const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+        const dia = String(hoje.getDate()).padStart(2, "0");
+
+        return `${ano}-${mes}-${dia}`;
+    }
+
+    if (campoData) {
+        campoData.min = obterDataAtual();
+    }
 
     if (formulario) {
 
-        formulario.addEventListener("submit", (event) => {
+        formulario.addEventListener("submit", function (event) {
 
             event.preventDefault();
 
+            // Atualiza a data mínima
+            if (campoData) {
+                campoData.min = obterDataAtual();
+            }
+
+            // Validação do formulário
             if (!formulario.reportValidity()) {
                 return;
             }
 
-            const nome = document.querySelector("#nome")
-                ?.value.trim() || "";
+            // ======================================
+            // 4. CAPTURA DOS DADOS
+            // ======================================
+
+            const nome = document.querySelector("#cliente")
+                .value.trim();
 
             const origem = document.querySelector("#origem")
-                ?.value.trim() || "";
+                .value.trim();
 
             const destino = document.querySelector("#destino")
-                ?.value.trim() || "";
+                .value.trim();
 
-            const data = document.querySelector("#data")
-                ?.value || "";
+            const data = document.querySelector("#dataViagem")
+                .value;
+
+            const horario = document.querySelector("#horaViagem")
+                .value;
 
             const passageiros = Number(
-                document.querySelector("#passageiros")?.value
+                document.querySelector("#passageiros").value
             );
 
             const veiculo = document.querySelector("#veiculo")
-                ?.value || "Sem preferência";
+                .value;
 
-            const pagamento = document.querySelector("#pagamento")
-                ?.value || "A combinar";
+            const pagamento = document.querySelector("#formaPagamento")
+                .value;
 
-            if (!nome || !origem || !destino || !data ||
-                !Number.isInteger(passageiros) || passageiros < 1) {
+            const observacoes = document.querySelector("#observacoes")
+                .value.trim();
 
-                alert("Preencha corretamente os dados da viagem.");
+
+            // ======================================
+            // 5. VALIDAÇÃO DOS DADOS
+            // ======================================
+
+            if (!nome || !origem || !destino ||
+                !data || !horario || !veiculo) {
+
+                if (feedback) {
+                    feedback.textContent =
+                        "Preencha todos os campos obrigatórios.";
+                }
+
                 return;
             }
 
-            const hoje = new Date();
-            hoje.setHours(0, 0, 0, 0);
+            if (!Number.isInteger(passageiros) ||
+                passageiros < 1 || passageiros > 99) {
 
-            const dataViagem = new Date(data + "T00:00:00");
+                if (feedback) {
+                    feedback.textContent =
+                        "Informe uma quantidade válida de passageiros.";
+                }
 
-            if (dataViagem < hoje) {
-                alert("Escolha uma data atual ou futura.");
                 return;
             }
 
-            const dataFormatada = dataViagem.toLocaleDateString(
-                "pt-BR"
-            );
+            if (data < obterDataAtual()) {
+
+                if (feedback) {
+                    feedback.textContent =
+                        "A data da viagem não pode estar no passado.";
+                }
+
+                return;
+            }
+
+
+            // ======================================
+            // 6. FORMATAÇÃO DA DATA
+            // ======================================
+
+            const partesData = data.split("-");
+
+            const dataFormatada =
+                `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
+
+
+            // ======================================
+            // 7. MENSAGEM PARA O WHATSAPP
+            // ======================================
 
             const mensagem =
 `Olá! Gostaria de solicitar um orçamento na NR Transportes.
 
+*DADOS DO CLIENTE*
 Nome: ${nome}
+
+*INFORMAÇÕES DA VIAGEM*
 Origem: ${origem}
 Destino: ${destino}
 Data: ${dataFormatada}
+Horário de saída: ${horario}
 Quantidade de passageiros: ${passageiros}
-Veículo: ${veiculo}
-Preferência de pagamento: ${pagamento}
+Veículo de preferência: ${veiculo}
 
-Aguardo o orçamento e a confirmação de disponibilidade.`;
+*PAGAMENTO*
+Preferência: ${pagamento}
 
+*OBSERVAÇÕES*
+${observacoes || "Nenhuma observação."}
+
+Aguardo o orçamento e a confirmação da disponibilidade.
+
+Obrigado!`;
+
+
+            // ======================================
+            // 8. INTEGRAÇÃO COM WHATSAPP
+            // ======================================
+
+            // Número da NR Transportes
+            // Formato: código do país + DDD + número
             const telefone = "5598982290235";
 
-            const link = "https://wa.me/" + telefone +
+            const linkWhatsApp =
+                "https://wa.me/" + telefone +
                 "?text=" + encodeURIComponent(mensagem);
 
-            window.open(link, "_blank", "noopener,noreferrer");
+            if (feedback) {
+                feedback.textContent =
+                    "Abrindo o WhatsApp com os dados do orçamento...";
+            }
+
+            // Abre o WhatsApp
+            window.location.href = linkWhatsApp;
 
         });
     }
 
 
     // ======================================
-    // 4. SIMULADOR DE PAGAMENTO
+    // 9. SIMULADOR DE PAGAMENTO
     // ======================================
 
     const campoValor = document.querySelector("#valorOrcamento");
-    const resultadoPagamento = document.querySelector(
-        "#resultadoPagamento"
-    );
 
-    const formatarMoeda = (valor) => {
+    const valorEntrada = document.querySelector("#valorEntrada");
+    const valorRestante = document.querySelector("#valorRestante");
+    const valorTotal = document.querySelector("#valorTotal");
+
+    function formatarMoeda(valor) {
+
         return valor.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL"
         });
-    };
+    }
 
-    if (campoValor && resultadoPagamento) {
+    if (campoValor && valorEntrada &&
+        valorRestante && valorTotal) {
 
-        campoValor.addEventListener("input", () => {
+        campoValor.addEventListener("input", function () {
 
             const valor = Number(campoValor.value);
 
             if (!Number.isFinite(valor) || valor <= 0) {
-                resultadoPagamento.textContent =
-                    "Informe um valor válido.";
+
+                valorEntrada.textContent = formatarMoeda(0);
+                valorRestante.textContent = formatarMoeda(0);
+                valorTotal.textContent = formatarMoeda(0);
+
                 return;
             }
 
             const entrada = valor * 0.5;
             const restante = valor - entrada;
 
-            resultadoPagamento.innerHTML = `
-                <p>Valor total: <strong>${formatarMoeda(valor)}</strong></p>
-                <p>Entrada de 50%: <strong>${formatarMoeda(entrada)}</strong></p>
-                <p>Valor restante: <strong>${formatarMoeda(restante)}</strong></p>
-            `;
+            valorEntrada.textContent = formatarMoeda(entrada);
+            valorRestante.textContent = formatarMoeda(restante);
+            valorTotal.textContent = formatarMoeda(valor);
         });
-    }
-
-
-    // ======================================
-    // 5. PERGUNTAS FREQUENTES
-    // ======================================
-
-    const perguntas = document.querySelectorAll(".faq-pergunta");
-
-    perguntas.forEach(pergunta => {
-
-        pergunta.addEventListener("click", () => {
-
-            const resposta = pergunta.nextElementSibling;
-
-            if (!resposta) return;
-
-            const aberta = !resposta.hidden;
-
-            resposta.hidden = aberta;
-
-            pergunta.setAttribute(
-                "aria-expanded",
-                String(!aberta)
-            );
-        });
-    });
-
-
-    // ======================================
-    // 6. BOTÃO VOLTAR AO TOPO
-    // ======================================
-
-    const botaoTopo = document.querySelector("#voltarTopo");
-
-    if (botaoTopo) {
-
-        botaoTopo.addEventListener("click", () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    }
-
-
-    // ======================================
-    // 7. DATA MÍNIMA DO FORMULÁRIO
-    // ======================================
-
-    const campoData = document.querySelector("#data");
-
-    if (campoData) {
-
-        const agora = new Date();
-
-        const ano = agora.getFullYear();
-        const mes = String(agora.getMonth() + 1).padStart(2, "0");
-        const dia = String(agora.getDate()).padStart(2, "0");
-
-        campoData.min = `${ano}-${mes}-${dia}`;
     }
 
 });
